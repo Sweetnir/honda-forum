@@ -1,0 +1,85 @@
+/* Login Container */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Login Title */
+  .login-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form Inputs */
+  .login-container .form-label {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .login-container .form-control {
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Login Button */
+  .login-container .btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color for the login button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-container .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Sign Up Link */
+  .login-container .btn-link {
+    font-size: 1rem;
+    color: #007bff; /* Blue color for the sign-up link */
+    text-decoration: none;
+  }
+  
+  .login-container .btn-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Styling for Mobile */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 10px;
+    }
+  
+    .login-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .login-container .form-label {
+      font-size: 1rem;
+    }
+  
+    .login-container .form-control {
+      font-size: 0.9rem;
+    }
+  
+    .login-container .btn-primary {
+      padding: 10px 15px;
+    }
+  
+    .login-container .btn-link {
+      font-size: 0.9rem;
+    }
+  }
+  

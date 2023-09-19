@@ -1,0 +1,102 @@
+/* Post Pictures Container */
+.post-pictures-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Section Title */
+  .post-pictures-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* File Input */
+  .post-pictures-container input[type="file"] {
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Upload Button */
+  .post-pictures-container button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color for the upload button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .post-pictures-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Image List */
+  .image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  /* Individual Image Item */
+  .image-item {
+    position: relative;
+    max-width: 100%;
+  }
+  
+  .image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Delete Button */
+  .image-item button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5757; /* Red color for the delete button */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .image-item button:hover {
+    background-color: #d42a2a; /* Darker red on hover */
+  }
+  
+  /* Responsive Styling for Mobile */
+  @media (max-width: 768px) {
+    .post-pictures-container {
+      padding: 10px;
+    }
+  
+    .post-pictures-container h2 {
+      font-size: 1.2rem;
+    }
+  
+    .post-pictures-container input[type="file"] {
+      font-size: 0.9rem;
+    }
+  
+    .post-pictures-container button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  }
+  

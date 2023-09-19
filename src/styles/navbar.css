@@ -1,0 +1,69 @@
+/* Navbar Container */
+.Navbar {
+    background-color: #121212; /* Dark background color */
+    color: #fff; /* Text color */
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  }
+  
+  /* Navbar Brand Link */
+  .navbar-brand {
+    font-size: 28px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    color: #ff6600; /* Orange text color */
+    text-decoration: none; /* Remove underlines */
+  }
+  
+  /* Navbar Toggler Icon Color */
+  .navbar-toggler-icon {
+    background-color: #ff6600; /* Orange color for the icon */
+  }
+  
+  /* Navbar Links */
+  .nav-link {
+    font-size: 18px; /* Larger font size */
+    color: #fff; /* Text color */
+    padding: 0.6rem 1rem; /* Adjust padding */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    border: none; /* Remove button borders */
+    cursor: pointer; /* Show pointer cursor */
+    text-transform: uppercase; /* Uppercase text */
+  }
+  
+  /* Navbar Links Hover Effect */
+  .nav-link:hover {
+    background-color: #ff6600; /* Orange background color on hover */
+    border-radius: 5px; /* Add rounded corners */
+    color: #121212; /* Dark text color on hover */
+    text-decoration: none; /* Remove underlines on hover */
+  }
+  
+  /* Active Link Style */
+  .nav-item.active .nav-link {
+    background-color: #ff6600; /* Orange background color for active link */
+  }
+  
+  /* Centered Navbar Items */
+  .centered-nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Compressible Navbar Items (for mobile) */
+  .compressible {
+    padding: 0.4rem 0.8rem; /* Adjust padding for mobile */
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+  
+  /* Additional Styling for Specific Links */
+  /* You can customize these styles for specific links like "Login" and "Logout */
+  .nav-link.login {
+    background-color: #007bff; /* Blue color for login button */
+  }
+  
+  .nav-link.logout {
+    background-color: #dc3545; /* Red color for logout button */
+  }
+  
