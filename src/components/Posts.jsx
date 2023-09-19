@@ -1,110 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import supabase from '../services/supabaseClient';
-import { v4 as uuidv4 } from 'uuid';
+"use client"; // Assuming you have the Supabase client configured elsewhere in your application
+
+import React, { useState } from "react";
 import "../styles/posts.css";
+import supabase from "../supabase"; // Make sure you have the Supabase client imported
 
-function PostPictures({ user }) {
-  const [file, setFile] = useState(null);
-  const [images, setImages] = useState([]);
+function UserPost() {
+  const [username, setUsername] = useState("");
+  const [comment, setComment] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Function to fetch and update the list of images
-  const getImages = async () => {
-    if (user) {
-      const { data, error } = await supabase.storage.from('images').list(`${user.id}/`);
+  // Handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-      if (data) {
-        setImages(data);
-      } else {
-        console.error('Error fetching images:', error);
-      }
-    }
-  };
-
-  // Fetch images when the component mounts or when the user changes
-  useEffect(() => {
-    getImages();
-  }, [user]);
-
-  const uploadImage = async () => {
-    if (!user) {
-      alert('Please log in to upload images.');
-      return;
-    }
-
-    if (!file) {
-      alert('Please select an image to upload.');
-      return;
-    }
-
+    // Insert data into the Supabase table
     try {
-      const { data, error } = await supabase.storage.from('images').upload(`${user.id}/${uuidv4()}`, file, {
-        cacheControl: '3600',
-        upsert: false,
-      });
-
-      if (data) {
-        alert('Image uploaded successfully.');
-        setFile(null); // Clear the selected file
-        getImages(); // Refresh the list of images
-      } else {
-        console.error('Error uploading image:', error);
-        alert('Error uploading image. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      alert('Error uploading image. Please try again.');
-    }
-  };
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  // Function to delete an image by name
-  const deleteImage = async (imageName) => {
-    if (!user) {
-      alert('Please log in to delete images.');
-      return;
-    }
-
-    try {
-      const { error } = await supabase.storage.from('images').remove([`${user.id}/${imageName}`]);
+      setIsSubmitting(true);
+      const { data, error } = await supabase
+        .from('posts')
+        .insert([{ username, comment }]);
 
       if (error) {
-        console.error('Error deleting image:', error);
-        alert('Error deleting image. Please try again.');
+        console.error('Error inserting data:', error.message);
       } else {
-        alert('Image deleted successfully.');
-        getImages(); // Refresh the list of images after deletion
+        console.log('Data inserted successfully:', data);
+        // Optionally, you can perform any UI updates here to indicate success
+
+        // Clear the form after successful submission
+        setUsername("");
+        setComment("");
       }
     } catch (error) {
-      console.error('Error deleting image:', error);
-      alert('Error deleting image. Please try again.');
+      console.error('Error inserting data:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="post-pictures-container"> {/* Updated container class */}
-      <h2>Post a Picture</h2>
-      {user && (
-        <>
-          <input type="file" accept="image/*" onChange={handleFileChange} />
-          <button className="upload-button" onClick={uploadImage}>Upload</button> {/* Updated button class */}
-          <p>Click on an image below to delete it.</p>
-        </>
-      )}
-
-      {/* Display uploaded images */}
-      <div className="image-list">
-        {images.map((image) => (
-          <div key={image.id} className="image-item">
-            <img src={image.url} alt={image.name} />
-            <button className="delete-button" onClick={() => deleteImage(image.name)}>Delete</button> {/* Updated button class */}
-          </div>
-        ))}
+    <>
+      <h1>Create a Post!</h1>
+      <div className="post-container">
+        <section className="user-textbox">
+          <form onSubmit={handleSubmit}>
+            <input
+              placeholder="Username"
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              placeholder="Comment"
+              type="text"
+              id="comment"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Submit Post"}
+            </button>
+          </form>
+        </section>
       </div>
-    </div>
+    </>
   );
 }
 
-export default PostPictures;
+export default UserPost;
