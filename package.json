@@ -26,6 +26,9 @@
     "use-supabase": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
+  "resolutions": {
+    "react": "18.2.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

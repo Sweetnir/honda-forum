@@ -14,9 +14,8 @@ function Navbar() {
     }
   };
 
-  const handleLogout = async () => {
-    // Handle logout logic here
-    // You can use supabase or any other authentication service
+  const handleLogout = async (e) => {
+    e.prevent.default();
   };
 
   const handleClick = (route) => {
@@ -32,7 +31,7 @@ function Navbar() {
     <div className="Navbar honda-social-navbar">
       <nav className="navbar navbar-expand-lg">
         <a className="navbar-brand compressible" href="/">
-          Honda Enthusiasts
+          Honda Hub
         </a>
         <button
           className="navbar-toggler custom-toggler compressible"

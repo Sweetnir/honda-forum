@@ -1,15 +1,15 @@
 /* Home Banner */
 .home-banner {
-    background-image: url(); /* Add your banner image URL */
+    background-image: url(); 
     background-size: cover;
     background-position: center;
     padding: 4rem 0;
     position: relative;
     text-align: center;
-    color: #; /* White text color */
+    color: black; 
 }
 
-/* Background Overlay */
+/* Background */
 .home-banner::before {
     content: "";
     position: absolute;
@@ -23,12 +23,12 @@
 .home-banner h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Slight text shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
 }
 
 .home-banner p {
     font-size: 1.5rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Slight text shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
 }
 
 /* Home Content Sections */
@@ -38,23 +38,27 @@
     justify-content: space-between;
     gap: 2rem;
     margin-top: 2rem;
+    padding: 15px;
 }
 
 /* Individual Home Sections */
 .home-section {
     flex: 1;
     min-width: calc(25% - 1rem);
-    background-color: #ffffff; /* White background color */
-    border: 1px solid #e0e0e0; /* Light gray border */
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0;
     padding: 1.5rem;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .home-section h2 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333333; /* Dark gray text color */
+    margin: auto;
+    color: #333333; 
+    height: 500px;
+    display: flex;
+    justify-content: center;
 }
 
 /* Responsive Styling for Mobile */
@@ -68,3 +72,8 @@
         min-width: 100%;
     }
 }
+
+.link {
+    text-decoration: none;
+}
+
