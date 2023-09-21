@@ -1,30 +1,48 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import supabase from './services/supabaseClient';
+import Auth from './components/Auth';
+import Account from './components/Account';
+
+
+// Import the new components
 import Home from './components/Home';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+import Posts from './components/Posts';
 import Profile from './components/Profile';
-import Posts from './components/Posts'; // Import the Posts component
+import Navbar from './components/Navbar';
+// Navbar component with navigation links
+
 
 function App() {
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
+
   return (
-    <div className="App">
+    <div className="container" style={{ padding: '50px 0 100px 0' }}>
       <Router>
-        <header>
-          <Navbar /> 
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/posts" element={<Posts />} /> {/* Add this route */}
-            {/* Add more routes for other pages as needed */}
-          </Routes>
-        </main>
+        {/* Include the Navbar component */}
+        <Navbar />
+        {/* Use Routes to define your routes */}
+        <Routes>
+          {/* Route for the Home component */}
+          <Route path="/" element={<Home />} />
+          {/* Route for the Posts component */}
+          <Route path="/posts" element={<Posts />} />
+          {/* Route for the Profile component */}
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
       </Router>
+      {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
     </div>
   );
 }
