@@ -65,7 +65,6 @@ export default function Chats() {
           .catch(e => console.log('e', e.response))
         })
       })
-      // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     }
   }, [user, history])
