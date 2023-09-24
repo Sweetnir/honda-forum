@@ -47,14 +47,6 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="centered-nav-items">
             <ul className="navbar-nav">
-              <li className="nav-item active">
-                <button
-                  className="nav-link compressible"
-                  onClick={() => handleClick("/")}
-                >
-                  Home
-                </button>
-              </li>
               <li className="nav-item">
                 <button
                   className="nav-link compressible"

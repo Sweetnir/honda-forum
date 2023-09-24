@@ -34,8 +34,6 @@ function SignUp() {
 
         console.log('Profile picture uploaded successfully:', imageUploadResponse);
 
-        // You can update user profile data here with the uploaded image URL
-        // Example: await supabase.from('users').update({ profile_picture: imageUploadResponse.url }).eq('id', user.id);
       }
     } catch (error) {
       console.error('Signup Error:', error.message);

@@ -1,7 +1,12 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Login Container */
 .login-container {
     max-width: 400px;
-    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -12,7 +17,7 @@
   /* Login Title */
   .login-container h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
+   
     color: #333;
   }
   
@@ -33,7 +38,7 @@
   /* Login Button */
   .login-container .btn-primary {
     padding: 10px 20px;
-    background-color: #007bff; /* Blue color for the login button */
+    background-color: #007bff; 
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -42,13 +47,13 @@
   }
   
   .login-container .btn-primary:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
   }
   
   /* Sign Up Link */
   .login-container .btn-link {
     font-size: 1rem;
-    color: #007bff; /* Blue color for the sign-up link */
+    color: #007bff;
     text-decoration: none;
   }
   
